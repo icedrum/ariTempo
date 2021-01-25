@@ -14,30 +14,25 @@
     <ion-label></ion-label>
   </ion-item>
     <ion-row>
-      <ion-col size="6" text-center>
-          <ion-button alig>
-            <ion-icon slot="end" name="play"></ion-icon>
+      <ion-col size="1" text-center></ion-col>
+      <ion-col size="4" text-center>
+          
+          <ion-button (click) ="EnciendeReloj()">
             Marcha
+            <ion-icon slot="end" name="play" ></ion-icon>
+            
         </ion-button>
       </ion-col>
-
-      <ion-col size="6">
-          <ion-button>
+      <ion-col size="2" text-center></ion-col>
+      <ion-col size="4">
+          <ion-button (click) ="ApagaReloj()">
             Pausa
-            <ion-icon slot="end" name="pause"></ion-icon>
+            <ion-icon slot="end" name="pause" ></ion-icon>
         </ion-button>
-        
       </ion-col>
+      <ion-col size="1" text-center></ion-col>
     </ion-row>
 
-
-
-
-
-
-
-  <ion-button  expand="block" (click)="EnciendeReloj()">Enciende</ion-button>
-  <ion-button expand="block" (click)="ApagaReloj()">Pausa</ion-button>
 
   <ion-list>
     <ion-item ion-item *ngFor="let rel of relojes">
