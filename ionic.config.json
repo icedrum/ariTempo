@@ -1,5 +1,7 @@
 {
   "name": "ariTempo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
