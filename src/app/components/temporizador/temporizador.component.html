@@ -1,0 +1,14 @@
+<ion-card>
+  <ion-card-header class="desc">
+    {{reloj.descrip}}
+  </ion-card-header>
+  <ion-card-content >
+     <div class="crono" >{{reloj.segundoActual  | formatotiempo }} </div>
+     
+
+    <div >{{reloj.textosSeries()}}</div>
+
+     <ion-progress-bar color="primary" value="{{reloj.devuelveProgess()}}"></ion-progress-bar>
+
+
+  </ion-card-content>
