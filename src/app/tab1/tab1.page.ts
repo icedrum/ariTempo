@@ -78,13 +78,13 @@ private PonReloj(IdReloj:RelojesClasService){
 
 
 private AnyadeRelojes(){
-  let reloj1= new RelojesClasService(1,"Largo",60,15,false,true,0)
+  let reloj1= new RelojesClasService(1,"Largo",20,8,false,true,0)
   this.relojes.push( reloj1);
-  reloj1= new RelojesClasService(2,"corto",30,10,false,true,0);
+  reloj1= new RelojesClasService(2,"corto",8,2,false,true,0);
   this.relojes.push( reloj1)
-  reloj1= new RelojesClasService(3,"Largo Intenso",60,10,false,true,0);
+  reloj1= new RelojesClasService(3,"Largo Intenso",20,2,false,true,0);
   this.relojes.push( reloj1);
-  reloj1= new RelojesClasService(4,"corto intenso",30,8,false,true,0);
+  reloj1= new RelojesClasService(4,"corto intenso",10,2,false,true,0);
   this.relojes.push( reloj1);
 
 

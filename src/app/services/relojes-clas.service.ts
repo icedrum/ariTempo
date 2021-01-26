@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { timeStamp } from 'console';
 //import { TemporizadorInt } from '../interaces/temporizador-int';
 
 @Injectable({
@@ -14,8 +13,11 @@ export class RelojesClasService {
     estaEnSerieActivo: boolean;
     segundoActual: number;
 
-    private segundosIntervalorActual:number;
-    
+    //Cuantos segundos tiene el intervalo que esta en marcha
+    segundosIntervalorActual:number;
+    seguntosTotales:number;
+    valorProgress:number ;  //ira de 0 a 1
+
   constructor(id:number,
               descrip: string,
               segundostintActivo: number ,
@@ -37,28 +39,32 @@ export class RelojesClasService {
                 } else {
                   this.segundosIntervalorActual=this.segundostintDescanso;
                 }
+                this.seguntosTotales=0;
+                this.valorProgress=0;
   }
 
 
-  devuelveProgess():number{
+  devuelveProgess():void{
       
     
     if (this.segundoActual>=this.segundosIntervalorActual){
-      return  1
+      this.valorProgress= 1
     } else {
-      return this.segundoActual/this.segundosIntervalorActual
+      this.valorProgress= this.segundoActual/this.segundosIntervalorActual
     }
 
   }
 
   SumaSegund(){
       this.segundoActual++;
-
+      this.seguntosTotales++;
 
       if (this.segundoActual>=this.segundosIntervalorActual) {this.CambiarIntervalo()}
 
-      
-
+      //Fijamos el PB
+     this.devuelveProgess();
+     
+     //
 
 
   }
@@ -73,5 +79,6 @@ export class RelojesClasService {
       this.segundosIntervalorActual=this.segundostintActivo;
     }
     this.segundoActual=0;
+
   }
 }
