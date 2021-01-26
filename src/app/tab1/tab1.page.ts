@@ -54,6 +54,8 @@ private PonReloj(IdReloj:RelojesClasService){
     if (r.id != IdReloj.id){
       r.enMarcha=false;
       r.segundoActual=0;
+      r.segundosLlevaActual=0;
+      
     }
   }
   IdReloj.enMarcha=true;
@@ -84,7 +86,7 @@ private AnyadeRelojes(){
   this.relojes.push( reloj1)
   reloj1= new RelojesClasService(3,"Largo Intenso",60,10,false,true,0);
   this.relojes.push( reloj1);
-  reloj1= new RelojesClasService(4,"corto intenso",30,8,false,true,0);
+  reloj1= new RelojesClasService(4,"corto intenso",10,2,false,true,0);
   this.relojes.push( reloj1);
 
 

@@ -37,7 +37,7 @@
   <ion-list>
     <ion-item ion-item *ngFor="let rel of relojes">
       <ion-item>
-        <button large ion-button item-right (click)="PonReloj(rel)">{{rel.descrip}}</button>
+        <button large ion-button item-right (click)="PonReloj(rel)">{{rel.descrip}}   ({{rel.segundostintActivo}}/{{rel.segundostintDescanso}}) </button>
       </ion-item>
     </ion-item>
 </ion-list>
