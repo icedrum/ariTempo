@@ -11,6 +11,12 @@ import { RelojesClasService } from '../../services/relojes-clas.service';
 })
 export class TemporizadorComponent implements OnInit {
 
+
+
+  public myColor:string[] = ['dark', 'dark', 'dark', 'dark', 'dark'];
+  
+  
+
   @Input() reloj: RelojesClasService;
   
   constructor() { }
