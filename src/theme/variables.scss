@@ -183,7 +183,7 @@
 
     --ion-item-background: #000000;
 
-    --ion-card-background: #1c1c1d;
+    --ion-card-background:  black//#1c1c1d;
   }
 
 
@@ -193,8 +193,8 @@
    */
 
   .md body {
-    --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
+    --ion-background-color: black; // #121212;
+    --ion-background-color-rgb: 255,255,255  //18,18,18;
 
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;
@@ -225,8 +225,8 @@
 
     --ion-toolbar-background: #1f1f1f;
 
-    --ion-tab-bar-background: #1f1f1f;
+    --ion-tab-bar-background: black // #1f1f1f;
 
-    --ion-card-background: #1e1e1e;
+    --ion-card-background: black // #1e1e1e;
   }
 }

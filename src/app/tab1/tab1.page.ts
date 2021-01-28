@@ -32,8 +32,9 @@ private EnciendeReloj(){
   
     this.id= setInterval(() => {      
       //
+      this.relojes[this.relojActivo].enMarcha=true;
       this.relojes[this.relojActivo].SumaSegund();
-      console.log('asd');
+
       
     },1000);
   }
@@ -45,6 +46,7 @@ private ApagaReloj(){
     this.id=null;
 
   }
+  this.relojes[this.relojActivo].enMarcha=false;
 }
 
 private PonReloj(IdReloj:RelojesClasService){

@@ -1,10 +1,18 @@
+
+//Crono parado
 .crono{
-    font-size: 64px;
-    text-align: center;
-    font-weight: 600
+    background-color:orange;
+    color: white
   } 
 
+  //Crono en marcha
+.crono1{
+  background-color:rgba(193, 10, 209, 0.938);
+  color: white
+}
 
   .desc{
     font-size: 24px;  
   } 
+
+
