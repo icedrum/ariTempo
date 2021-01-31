@@ -12,6 +12,11 @@ export class RelojesClasService {
     enMarcha: boolean;
     estaEnSerieActivo: boolean;
     segundoActual: number;
+    intervalo:number =0 ;
+
+
+    //Hay que reestablecer
+    hayQueReestablecer: boolean;
 
     //Cuantos segundos tiene el intervalo que esta en marcha
     segundosIntervalorActual:number;
@@ -41,6 +46,7 @@ export class RelojesClasService {
                 }
                 this.seguntosTotales=0;
                 this.valorProgress=0;
+                this.hayQueReestablecer=false;
   }
 
 
@@ -56,10 +62,46 @@ export class RelojesClasService {
   }
 
   SumaSegund(){
+
+    //Dependiendo si el intervalo es 500 ms, 100... cada x hara un segundo
+    
+    
+    
+    this.intervalo++;
+    let res:number=this.intervalo % 2;
+   
+    
+    if (res==0) {
+      this.SumaUnSegundo()    
+    } else {
+      //por si hay qye hacer algo mas
+    
+
+    
+    
+    }  
+
+
+  }
+
+
+
+  SumaUnSegundo(){
       this.segundoActual++;
       this.seguntosTotales++;
 
-      if (this.segundoActual>=this.segundosIntervalorActual) {this.CambiarIntervalo()}
+      if (this.segundoActual>this.segundosIntervalorActual) {
+        this.CambiarIntervalo()}
+      else {
+
+          //Esta dentro de la serie
+          //
+
+
+      }
+
+
+        
 
       //Fijamos el PB
      this.devuelveProgess();
@@ -78,7 +120,7 @@ export class RelojesClasService {
       this.estaEnSerieActivo=true;
       this.segundosIntervalorActual=this.segundostintActivo;
     }
-    this.segundoActual=0;
-
+    this.segundoActual=1;
+    this.intervalo=0;
   }
 }

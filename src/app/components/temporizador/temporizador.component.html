@@ -5,7 +5,7 @@
       <ion-row>
         <ion-col size="6" class="ion-text-left">
           
-          <ion-text color="primary">
+          <ion-text color="white">
             <h4>{{reloj.descrip}}</h4>
           </ion-text>  
            
@@ -14,7 +14,7 @@
 
         </ion-col>
         <ion-col size="6" class="ion-text-right">
-            <ion-text>
+            <ion-text size="12px">
               <h5>{{reloj.seguntosTotales  | formatotiempo }}</h5>
             </ion-text>
           </ion-col>
@@ -26,21 +26,52 @@
   
     
   
-      <ion-grid class="ion-padding">
+      <ion-grid >
         <ion-row>
-          <ion-col size="1"></ion-col>
-          <ion-col size="10" 
+          <ion-col size="2">
+
+                <ion-grid >
+                  <ion-row>
+                    <ion-col    [ngClass]="{stintactivo: reloj.estaEnSerieActivo}">.</ion-col>
+                    
+                  </ion-row>
+                  <ion-row>
+                    <ion-col  [ngClass]="{stintdescanso: !reloj.estaEnSerieActivo}"> .
+                        
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+
+
+
+
+          </ion-col>
+          <ion-col size="9" 
               style="font-size: 64px; text-align: center; font-weight: 600" 
-              [ngClass]="{crono1: reloj.enMarcha, crono: !reloj.enMarcha}">
+              [ngClass]="{crono: reloj.enMarcha, crono1: !reloj.enMarcha}">
               {{reloj.segundoActual  | formatotiempocorto }}
+
+
             </ion-col>
-          <ion-col size="1"></ion-col>
+          <ion-col size="1">
+
+
+              <!-- <div *ngIf="reloj.enMarcha; then thenBlock else elseBlock"></div>
+              <ng-template #thenBlock  [ngClass]="stintdescanso">T</ng-template>
+              <ng-template #elseBlock  [ngClass]="stintdescanso">F</ng-template> -->
+
+              
+              
+              
+          </ion-col>
         </ion-row>
       </ion-grid>
 
    
 
-     <ion-progress-bar color="primary" value="{{reloj.valorProgress}}"></ion-progress-bar>
+     <ion-progress-bar  [color]="red"
+      value="{{reloj.valorProgress}}"></ion-progress-bar>
 
 
   </ion-card-content>

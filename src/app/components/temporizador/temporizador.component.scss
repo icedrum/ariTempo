@@ -2,12 +2,14 @@
 //Crono parado
 .crono{
     background-color:orange;
-    color: white
+    color: white;
+    border-radius:40px; border: 5px black solid;
   } 
 
   //Crono en marcha
 .crono1{
   background-color:rgba(193, 10, 209, 0.938);
+  border-radius:40px; border: 5px black solid;
   color: white
 }
 
@@ -15,4 +17,14 @@
     font-size: 24px;  
   } 
 
+  //Stint Activo o descanso 
+  .stintactivo{
+    background-color:rgb(7, 11, 255);
+    border-radius:10px; border: 10px black solid;
+  }
+  //Crono en marcha
+  .stintdescanso{
+    background-color:rgba(193, 10, 209, 0.938);
+    border-radius:10px; border: 10px black solid;
+  }
 

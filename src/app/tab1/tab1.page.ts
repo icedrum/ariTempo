@@ -11,14 +11,14 @@ export class Tab1Page {
 
 
   relojes: RelojesClasService[]=[]  ;
-  relojActivo: number=0;
+  relojActivo: number=3;
    id:any;  //para el setinterval
   decimassegundos : number ;  
 
 constructor() { 
   this.decimassegundos=0;
-  this.relojActivo=0;
   this.AnyadeRelojes();
+  this.relojActivo=3;
   console.log(this.relojes);
   
   
@@ -36,7 +36,7 @@ private EnciendeReloj(){
       this.relojes[this.relojActivo].SumaSegund();
 
       
-    },1000);
+    },500);
   }
 }
 
