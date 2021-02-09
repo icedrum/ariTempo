@@ -14,8 +14,8 @@
 
         </ion-col>
         <ion-col size="6" class="ion-text-right">
-            <ion-text size="12px">
-              <h5>{{reloj.seguntosTotales  | formatotiempo }}</h5>
+            <ion-text size="14px">
+              <h5 color="white">{{reloj.seguntosTotales  | formatotiempo }}</h5>
             </ion-text>
           </ion-col>
       </ion-row>
@@ -28,17 +28,17 @@
   
       <ion-grid >
         <ion-row>
-          <ion-col size="2">
+          <ion-col size="3">
 
                 <ion-grid >
-                  <ion-row>
-                    <ion-col    [ngClass]="{stintactivo: reloj.estaEnSerieActivo}">.</ion-col>
+                  <ion-row >
+                    <ion-col   [ngClass]="{stintactivo: reloj.estaEnSerieActivo}">
+                    <div text-center>A</div> 
+                    </ion-col>
                     
                   </ion-row>
-                  <ion-row>
-                    <ion-col  [ngClass]="{stintdescanso: !reloj.estaEnSerieActivo}"> .
-                        
-                    </ion-col>
+                  <ion-row >  
+                    <ion-col text-center [ngClass]="{stintdescanso: !reloj.estaEnSerieActivo}">D</ion-col>
                   </ion-row>
                 </ion-grid>
 
@@ -47,7 +47,7 @@
 
 
           </ion-col>
-          <ion-col size="9" 
+          <ion-col size="8" 
               style="font-size: 64px; text-align: center; font-weight: 600" 
               [ngClass]="{crono: reloj.enMarcha, crono1: !reloj.enMarcha}">
               {{reloj.segundoActual  | formatotiempocorto }}
@@ -57,11 +57,9 @@
           <ion-col size="1">
 
 
-              <!-- <div *ngIf="reloj.enMarcha; then thenBlock else elseBlock"></div>
-              <ng-template #thenBlock  [ngClass]="stintdescanso">T</ng-template>
-              <ng-template #elseBlock  [ngClass]="stintdescanso">F</ng-template> -->
-
-              
+              <div *ngIf="reloj.enMarcha">
+                <span  class="blue">{{reloj.textoAyuda}}</span>
+             </div>
               
               
           </ion-col>

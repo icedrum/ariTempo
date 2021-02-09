@@ -7,7 +7,7 @@ import { RelojesClasService } from '../services/relojes-clas.service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page  {
 
 
   relojes: RelojesClasService[]=[]  ;
@@ -58,22 +58,31 @@ private PonReloj(IdReloj:RelojesClasService){
       r.segundoActual=0;
     }
   }
-  IdReloj.enMarcha=true;
+  IdReloj.enMarcha=false;
   this.relojActivo=IdReloj.id-1;
 
   if (this.id){
     this.ApagaReloj();
   }
   else {
-    this.EnciendeReloj();
+   // this.EnciendeReloj();
   }
 
 
+  const handleClick = (ev: Event) => {
+    ev.stopImmediatePropagation();
   
+    // Use router.replace or other custom logic here
+  }
+ 
+  
+ 
 }
 
-
-
+ionViewWillLeave() {
+  console.log('ionViewWillLeave');  // <- Not in console when leaving
+  this.ApagaReloj();
+}
 
 
 

@@ -17,13 +17,17 @@ export class RelojesClasService {
 
     //Hay que reestablecer
     hayQueReestablecer: boolean;
+    textoAyuda:string="";
 
     //Cuantos segundos tiene el intervalo que esta en marcha
     segundosIntervalorActual:number;
     seguntosTotales:number;
     valorProgress:number ;  //ira de 0 a 1
 
-  constructor(id:number,
+    //Audios 
+    arrAudios: string[]=[];
+
+    constructor(id:number,
               descrip: string,
               segundostintActivo: number ,
               segundostintDescanso: number,
@@ -47,7 +51,15 @@ export class RelojesClasService {
                 this.seguntosTotales=0;
                 this.valorProgress=0;
                 this.hayQueReestablecer=false;
-  }
+
+                //los audios  ../assets/sonidos/sonido1.mp3
+                let mipaz: string="../assets/sonidos/";
+                let aux: string;
+                for (var  i=1;i<=7;i++){
+                  aux=mipaz + "sonido" + i.toString() + ".mp3";
+                  this.arrAudios[i-1]=aux;
+                }
+              }
 
 
   devuelveProgess():void{
@@ -65,6 +77,7 @@ export class RelojesClasService {
 
     //Dependiendo si el intervalo es 500 ms, 100... cada x hara un segundo
     
+   
     
     
     this.intervalo++;
@@ -75,8 +88,16 @@ export class RelojesClasService {
       this.SumaUnSegundo()    
     } else {
       //por si hay qye hacer algo mas
-    
 
+      if (this.hayQueReestablecer){
+
+
+        this.textoAyuda="";
+
+
+        this.hayQueReestablecer=false; 
+        
+      }
     
     
     }  
@@ -96,8 +117,36 @@ export class RelojesClasService {
 
           //Esta dentro de la serie
           //
+          let queda=this.segundosIntervalorActual- this.segundoActual;
+          let ayuda:string ="";
+          
+          switch (queda) {
+            case 30:
+              //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
+              ayuda="30";
 
+              break;
+            case 10:
+              //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
+              ayuda="10"
+              break;
+            case 3:
+            case 2:
+            case 1:
+              ayuda=queda.toString();
+              this.playAudio(3);
 
+              //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+              break;
+            default:
+              //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
+              
+          }
+          
+          if (ayuda != ""){
+            this.hayQueReestablecer=true;
+            this.textoAyuda=ayuda;
+          }
       }
 
 
@@ -122,5 +171,23 @@ export class RelojesClasService {
     }
     this.segundoActual=1;
     this.intervalo=0;
+    this.textoAyuda="";
+    let cual:number= 4;
+    if (this.estaEnSerieActivo) { cual=5}
+    this.playAudio(cual);
   }
+
+  // 0.- 
+  playAudio(cual: number){
+    let audio = new Audio();
+    audio.src =  this.arrAudios[cual];
+    
+    console.log(audio.src);
+    
+    audio.load();
+    audio.play();
+  }
+  
+
+
 }
